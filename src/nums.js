@@ -91,6 +91,24 @@ export const numbers = [
   },
   {
     id: crypto.randomUUID(),
+    num: 16,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    num: 17,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    num: 18,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
     num: 1,
     isShow: false,
     isFound: false,
@@ -176,6 +194,24 @@ export const numbers = [
   {
     id: crypto.randomUUID(),
     num: 15,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    num: 16,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    num: 17,
+    isShow: false,
+    isFound: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    num: 18,
     isShow: false,
     isFound: false,
   },

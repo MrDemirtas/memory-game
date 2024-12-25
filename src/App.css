@@ -3,6 +3,7 @@
 body {
   font-family: "Atkinson Hyperlegible", system-ui;
   padding: 24px;
+  background-color: #fcfcfc;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     line-height: 29.76px;
     color: #152938;
   }
+  margin-bottom: 80px;
 }
 
 .numbers-container {
@@ -33,16 +35,16 @@ header {
       font-size: 24px;
       font-weight: 700;
       line-height: 29.76px;
-      color: #FCFCFC;
+      color: #fcfcfc;
     }
   }
 
   .number.active {
-    background-color: #FDA214;
+    background-color: #fda214;
   }
 
   .number.passive {
-    background-color: #BCCED9;
+    background-color: #bcced9;
   }
 }
 
@@ -58,5 +60,38 @@ header {
   justify-content: center;
   font-size: 24px;
   font-weight: 700;
-  color: #FCFCFC;
+  color: #fcfcfc;
+}
+
+.footer {
+  margin-top: 80px;
+  text-align: center;
+  h1 {
+    font-size: 24px;
+    line-height: 29.76px;
+    color: #152938;
+    margin-bottom: 24px;
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .time,
+    .moves {
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 10px 32px;
+      background-color: #dfe7ec;
+      h3 {
+        color: #7191a5;
+      }
+      span {
+        color: #304859;
+      }
+    }
+  }
 }

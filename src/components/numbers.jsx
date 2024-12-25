@@ -2,41 +2,38 @@ import { useState } from "react";
 import { numbers } from "../nums";
 
 const randomNumbers = numbers.sort(() => Math.random() - 0.5);
-
-function Numbers() {
+console.log(randomNumbers);
+function Numbers({ handleMoves, handleGameOver }) {
   const [numberData, setNumberData] = useState(randomNumbers);
   const [selectedNumbers, setSelectedNumbers] = useState([]);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [isGameOver, setIsGameOver] = useState(false);
-
-  if (numberData.every((x) => x.isFound === true)) {
-    setIsGameOver(true);
-  }
-
-  if (selectedNumbers.length === 2) {
-    setButtonDisabled(true);
-    if (selectedNumbers[0].num === selectedNumbers[1].num) {
-      setTimeout(() => {
-        numberData.find((x) => x.id === selectedNumbers[0].id).isFound = true;
-        numberData.find((x) => x.id === selectedNumbers[1].id).isFound = true;
-        setNumberData([...numberData]);
-        setButtonDisabled(false);
-      }, 1500);
-    } else {
-      setTimeout(() => {
-        numberData.find((x) => x.id === selectedNumbers[0].id).isShow = false;
-        numberData.find((x) => x.id === selectedNumbers[1].id).isShow = false;
-        setNumberData([...numberData]);
-        setButtonDisabled(false);
-      }, 1500);
-    }
-    setSelectedNumbers([]);
-  }
 
   function handleClick(id, num) {
     numberData.find((x) => x.id === id).isShow = true;
     setNumberData([...numberData]);
-    setSelectedNumbers([...selectedNumbers, { id: id, num: num }]);
+    const newSelectedNumbers = [...selectedNumbers, { id: id, num: num }];
+
+    if (newSelectedNumbers.length === 2) {
+      handleMoves();
+      setButtonDisabled(true);
+      setTimeout(() => {
+        if (newSelectedNumbers[0].num === newSelectedNumbers[1].num) {
+          numberData.find((x) => x.id === newSelectedNumbers[0].id).isFound = true;
+          numberData.find((x) => x.id === newSelectedNumbers[1].id).isFound = true;
+        } else {
+          numberData.find((x) => x.id === newSelectedNumbers[0].id).isShow = false;
+          numberData.find((x) => x.id === newSelectedNumbers[1].id).isShow = false;
+        }
+        if (numberData.every((x) => x.isFound)) {
+          handleGameOver();
+        }
+        setNumberData([...numberData]);
+        setButtonDisabled(false);
+      }, 1500);
+      setSelectedNumbers([]);
+    } else {
+      setSelectedNumbers([{ id: id, num: num }]);
+    }
   }
 
   return (
