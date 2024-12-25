@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <h1>Memory Game</h1>
+      <h1>memory</h1>
     </header>
   );
 }
