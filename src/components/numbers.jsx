@@ -9,6 +9,7 @@ function Numbers({ handleMoves, handleGameOver }) {
   const [selectedNumbers, setSelectedNumbers] = useState([]); // * selectedNumbers dizisini useState ile oluşturuyoruz ve başlangıç değeri olarak boş bir dizi atıyoruz
   const [buttonDisabled, setButtonDisabled] = useState(false); // * buttonDisabled değişkenini useState ile oluşturuyoruz ve başlangıç değeri olarak false atıyoruz
 
+  // * 2 adet sayı seçildiğinde çalışan koşul
   if (selectedNumbers.length == 2) {
     handleMoves(); // * App componentinden PROP DRILLING ile aldığımız handleMoves fonksiyonunu çağırıyoruz
     setButtonDisabled(true); // * buttonDisabled değişkenini true yaparak işlem bitene kadar butonların pasif olmasını sağlıyoruz
