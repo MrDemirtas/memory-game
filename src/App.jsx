@@ -3,15 +3,15 @@ import Numbers from "./components/numbers";
 import Footer from "./components/footer";
 import { useState } from "react";
 
-let firstTime = false; // * firstTime global değişkenini false olarak başlangıç değeri olarak atıyoruz
+let firstTime = false; // * firstTime global değişkenini başlangıç değeri olarak false atıyoruz
 let timerId; // * timerId global değişkenini oluşturuyoruz
 
 function App() {
-  const [moves, setMoves] = useState(0); // * moves değişkenini useState ile oluşturuyoruz ve 0 olarak başlangıç değeri olarak atıyoruz
-  const [time, setTime] = useState(0); // * time değişkenini useState ile oluşturuyoruz ve 0 olarak başlangıç değeri olarak atıyoruz
-  const [gameOver, setGameOver] = useState(false); // * gameOver değişkenini useState ile oluşturuyoruz ve false olarak başlangıç değeri olarak atıyoruz
+  const [moves, setMoves] = useState(0); // * moves değişkenini useState ile oluşturuyoruz ve başlangıç değeri olarak 0 atıyoruz
+  const [time, setTime] = useState(0); // * time değişkenini useState ile oluşturuyoruz ve başlangıç değeri olarak 0 atıyoruz
+  const [gameOver, setGameOver] = useState(false); // * gameOver değişkenini useState ile oluşturuyoruz ve başlangıç değeri olarak false atıyoruz
 
-  // * timer fonksiyonu ile zamanı sayıyoruz
+  // * timer fonksiyonu ile kronometreyi başlatıyoruz
   function timer() {
     // * kronometreyi başlatıyoruz ve timer değişkenine atıyoruz
     const timer = setInterval(() => {
@@ -22,7 +22,7 @@ function App() {
 
   // * firstTime değişkeni false ise çalışır.
   if (!firstTime) {
-    timerId = timer(); // * timer fonksiyonunu çağırıyoruz ve timerId'yi global değişken olarak atıyoruz
+    timerId = timer(); // * timer fonksiyonunu çağırıyoruz ve timerId'yi global değişken olarak atıyoruz çünkü oyun bittiğinde clearInterval(timerId) ile zamanı durduracağız
     firstTime = true; // * firstTime değişkenini true yapıyoruz çünkü zamanı saymaya başladık. Eğer yapmazsak her render olduğunda timer fonksiyonu çalışır.
   }
 

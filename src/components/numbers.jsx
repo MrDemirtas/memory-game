@@ -6,8 +6,8 @@ function Numbers({ handleMoves, handleGameOver }) {
   // * handleMoves ve handleGameOver fonksiyonlarını App componentinden PROP DRILLING ile alıyoruz
   
   const [numberData, setNumberData] = useState(randomNumbers); // * numberData dizisini useState ile oluşturuyoruz ve randomNumbers dizisini başlangıç değeri olarak atıyoruz
-  const [selectedNumbers, setSelectedNumbers] = useState([]); // * selectedNumbers dizisini useState ile oluşturuyoruz ve boş bir dizi olarak başlangıç değeri olarak atıyoruz
-  const [buttonDisabled, setButtonDisabled] = useState(false); // * buttonDisabled değişkenini useState ile oluşturuyoruz ve false olarak başlangıç değeri olarak atıyoruz
+  const [selectedNumbers, setSelectedNumbers] = useState([]); // * selectedNumbers dizisini useState ile oluşturuyoruz ve başlangıç değeri olarak boş bir dizi atıyoruz
+  const [buttonDisabled, setButtonDisabled] = useState(false); // * buttonDisabled değişkenini useState ile oluşturuyoruz ve başlangıç değeri olarak false atıyoruz
 
   if (selectedNumbers.length == 2) {
     handleMoves(); // * App componentinden PROP DRILLING ile aldığımız handleMoves fonksiyonunu çağırıyoruz
@@ -65,8 +65,8 @@ function Numbers({ handleMoves, handleGameOver }) {
 function Number({ id, num, isShow, isFound, handleClick, buttonDisabled }) {
   return (
     <button
-      className={"number" + (isFound ? " passive" : isShow ? " active" : "")} // * number class'ına isFound, isShow ve buttonDisabled değerlerine göre class ekliyoruz
-      disabled={isFound || isShow || buttonDisabled} // * butonun aktif olup olmadığını belirliyoruz
+      className={"number" + (isFound ? " passive" : isShow ? " active" : "")} // * number class'ına isFound, isShow değerlerine göre class ekliyoruz
+      disabled={isFound || isShow || buttonDisabled} // * isFound, isShow ve buttonDisabled değerleri true ise buton pasif hale getiriyoruz
       onClick={() => handleClick(id, num)} // * buton tıklandığında PROP DRILLING ile aldığımız handleClick fonksiyonunu çağırıyoruz
     >
       <span>
