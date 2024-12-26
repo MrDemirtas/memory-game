@@ -2,96 +2,178 @@
 
 body {
   font-family: "Atkinson Hyperlegible", system-ui;
-  padding: 24px;
   background-color: #fcfcfc;
 }
 
-header {
-  h1 {
-    font-size: 24px;
-    line-height: 29.76px;
-    color: #152938;
-  }
-  margin-bottom: 80px;
-}
+.container {
+  max-width: 375px;
+  margin-inline: auto;
+  padding: 24px;
 
-.numbers-container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-
-  .number {
-    background-color: #304859;
-    border-radius: 50%;
-    padding: 16px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
-    span {
+  header {
+    h1 {
       font-size: 24px;
-      font-weight: 700;
       line-height: 29.76px;
-      color: #fcfcfc;
+      color: #152938;
+    }
+    margin-bottom: 80px;
+  }
+
+  .numbers-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    justify-items: center;
+    margin-inline: auto;
+
+    .number {
+      background-color: #304859;
+      border-radius: 50%;
+      padding: 16px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      span {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29.76px;
+        color: #fcfcfc;
+      }
+    }
+
+    .number:hover {
+      background-color: #6395b8;
+    }
+
+    .number.active {
+      background-color: #fda214;
+    }
+
+    .number.passive {
+      background-color: #bcced9;
     }
   }
 
-  .number.active {
-    background-color: #fda214;
-  }
-
-  .number.passive {
-    background-color: #bcced9;
-  }
-}
-
-.game-over {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #fcfcfc;
-}
-
-.footer {
-  margin-top: 80px;
-  text-align: center;
-  h1 {
-    font-size: 24px;
-    line-height: 29.76px;
-    color: #152938;
-    margin-bottom: 24px;
-  }
-  .footer-container {
+  .game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .time,
-    .moves {
-      border-radius: 5px;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fcfcfc;
+  }
+
+  footer {
+    margin-top: 80px;
+    text-align: center;
+    margin-inline: auto;
+    h1 {
+      font-size: 24px;
+      line-height: 29.76px;
+      color: #152938;
+      margin-bottom: 24px;
+    }
+    .footer-container {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 10px 32px;
-      background-color: #dfe7ec;
-      h3 {
-        color: #7191a5;
+      .time,
+      .moves {
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 10px 32px;
+        background-color: #dfe7ec;
+        h3 {
+          color: #7191a5;
+          font-size: 15px;
+          line-height: 18.6px;
+        }
+        span {
+          color: #304859;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 29.76px;
+        }
       }
-      span {
-        color: #304859;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+
+    header {
+      h1 {
+        font-size: 40px;
+        line-height: 49.6px;
       }
+    }
+
+    max-width: 768px;
+
+    .numbers-container {
+      max-width: 572px;
+      gap: 16px;
+      .number {
+        width: 82px;
+        height: 82px;
+        span {
+          font-size: 44px;
+        }
+      }
+    }
+
+    footer {
+      max-width: 540px;
+      margin-top: 122px;
+      margin-inline: auto;
+      h1 {
+        font-size: 40px;
+        line-height: 49.6px;
+      }
+      .footer-container {
+        .time,
+        .moves {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 24px;
+          width: 255px;
+          h3 {
+            font-size: 18px;
+            line-height: 22.32px;
+          }
+          span {
+            font-size: 32px;
+            line-height: 39.68px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 68px 165px;
+
+    .numbers-container {
     }
   }
 }
