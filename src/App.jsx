@@ -13,16 +13,15 @@ function App() {
 
   // * timer fonksiyonu ile kronometreyi başlatıyoruz
   function timer() {
-    // * kronometreyi başlatıyoruz ve timer değişkenine atıyoruz
-    const timer = setInterval(() => {
+    // * kronometreyi başlatıyoruz timerId değişkenine atıyoruz çünkü oyun bittiğinde clearInterval(timerId) ile zamanı durduracağız
+    timerId = setInterval(() => {
       setTime((prev) => prev + 1); // * time değişkenini 1 saniye arttırıyoruz. setTime kullanıyoruz çünkü state değiştiğinde component tekrar render olur.
     }, 1000);
-    return timer; // * timer değişkenini döndürüyoruz
   }
 
   // * firstTime değişkeni false ise çalışır.
   if (!firstTime) {
-    timerId = timer(); // * timer fonksiyonunu çağırıyoruz ve timerId'yi global değişken olarak atıyoruz çünkü oyun bittiğinde clearInterval(timerId) ile zamanı durduracağız
+    timer(); // * timer fonksiyonunu çağırıyoruz
     firstTime = true; // * firstTime değişkenini true yapıyoruz çünkü zamanı saymaya başladık. Eğer yapmazsak her render olduğunda timer fonksiyonu çalışır.
   }
 
