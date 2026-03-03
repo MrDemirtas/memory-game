@@ -32,7 +32,7 @@ function Numbers({ handleMoves, handleGameOver }) {
 
       setNumberData([...numberData]); // * numberData dizisini güncelliyoruz
       setButtonDisabled(false); // * buttonDisabled değişkenini false yapıyoruz
-    }, 1500);
+    }, 500);
 
     setSelectedNumbers([]); // * selectedNumbers dizisini boş bir dizi olarak atıyoruz
   }
